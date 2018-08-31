@@ -10,8 +10,7 @@
                 <p>
                     {# if there's an author and a date entry then show it #}
                     {% if entry.updated_parsed and entry['author'] %}
-                    <small class="text-muted">
-                        <!-- Veröffentlicht am {% if entry.updated_parsed[2] < 10 %}0{{ entry.updated_parsed[2] }}.{% else %}{{ entry.updated_parsed[2] }}.{% endif %}{% if entry.updated_parsed[1] < 10 %}0{{ entry.updated_parsed[1] }}.{% else %}{{ entry.updated_parsed[1] }}.{% endif %}{{ entry.updated_parsed[0] }} von {{ entry['author'] }} -->
+                    <small class="text-muted">                   
                         Veröffentlicht am {{ entry.updated_parsed|convertTime }} von {{ entry['author'] }}
                     </small>
                     {# if there's only a date #}
