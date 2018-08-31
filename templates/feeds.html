@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for site in feeds %}
+    <h4 class="text-center pb-2"><a target="_blank" rel="noopener noreferrer" href="{{ site.link }}">{{ site.title }}</a></h4>
+    {% for entry in feeds[site] %}
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="feed-metadata text-center">
+                <a class="feed-title" target="_blank" rel="noopener noreferrer" href="{{ entry.link }}">{{ entry.title }}</a>
+                <p>
+                    {# if there's an author and a date entry then show it #}
+                    {% if entry.updated_parsed and entry['author'] %}
+                    <small class="text-muted">
+                        <!-- Veröffentlicht am {% if entry.updated_parsed[2] < 10 %}0{{ entry.updated_parsed[2] }}.{% else %}{{ entry.updated_parsed[2] }}.{% endif %}{% if entry.updated_parsed[1] < 10 %}0{{ entry.updated_parsed[1] }}.{% else %}{{ entry.updated_parsed[1] }}.{% endif %}{{ entry.updated_parsed[0] }} von {{ entry['author'] }} -->
+                        Veröffentlicht am {{ entry.updated_parsed|convertTime }} von {{ entry['author'] }}
+                    </small>
+                    {# if there's only a date #}
+                    {% elif entry.updated_parsed %}
+                    <small class="text-muted">
+                        Veröffentlicht am {{ entry.updated_parsed|convertTime }}
+                    </small>
+                    {% endif %}
+                </p>
+            </div>
+            {# limit description to 400 chars and remove HTML tags #}
+            <p class="feed-content feed-large d-none d-sm-block">{{ entry.description[:400]|striptags }}</p>
+            <p class="feed-content feed-small d-block d-sm-none text-center">{{ entry.description[:400]|striptags }}</p>
+        </div>
+    </article>
+    {% endfor %}
+    <br>
+    <br>
+    {% endfor %}
+{% endblock content %}
