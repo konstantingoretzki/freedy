@@ -9,8 +9,10 @@ import locale
 
 app = Flask(__name__)
 
+# needed for changing months to German for date entries
 locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
 
+# custom filter for getting the published_date in the following format: 1. September 2018
 @app.template_filter('convertTime')
 def convertTime(timeVar):
     return (datetime.fromtimestamp(mktime(timeVar))).strftime("%d. %B %Y")
@@ -21,15 +23,6 @@ def displayRSS():
     fileHandler = open("urls.txt", "r")
     sites = [feedparser.parse(x) for x in sorted(fileHandler.readlines()) if validators.url(x)]
     fileHandler.close()
-
-    # try: 
-    #   parse aus config file vars wie feedCount
-    #   am besten wohl mit configparser https://docs.python.org/3/library/configparser.html
-    # expect:
-    #   wenn Fehler dann returne den halt
-    #   return Excepetion
-    #   Excepation as e
-    #   return "Fehler du Depp: "+e
 
     # LEGACY Version - only entries, no site names etc.
     # feedCount = 2
@@ -42,8 +35,11 @@ def displayRSS():
     #     counter = 0
     #     feedEntries.append("BREAKER")
     # return render_template('feeds.html', feedEntries=feedEntries)
-
+    
+    # TODO: Get vars from config file using configparser 
+    # Change for desired amount of post showed from one site
     feedCounter = 3
+    
     counter = 0
     feeds = {}
     for site in sites:
@@ -58,4 +54,5 @@ def displayRSS():
 
 @app.route("/impressum")
 def displayImprint():
+    # TODO: Add full-fledged GDPR imprint
     return render_template('impressum.html', title="Impressum")
