@@ -1,6 +1,6 @@
 # Freedy
 
-![freedy](https://i.imgur.com/NPiCGPR.jpg)
+![freedy](https://i.imgur.com/Z0P5UVL.jpg)
 
 ## What is Freedy?
 Freedy is a free and simple RSS/ Atom reader for the browser, written in Python with Flask. This is our first web application, so if there are any fatal mistakes, feel free to tell us!
