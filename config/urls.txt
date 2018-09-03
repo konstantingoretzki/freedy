@@ -1,0 +1,7 @@
+# File for your RSS feed URLs
+
+# Just add the URL to the RSS page
+# invalid URLs entries will be ignored 
+
+# Example 
+https://unregblog.de/rss
