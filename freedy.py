@@ -20,7 +20,7 @@ def convertTime(timeVar):
 @app.route("/")
 @app.route("/feeds")
 def displayRSS():
-    fileHandler = open("urls.txt", "r")
+    fileHandler = open("config/urls.txt", "r")
     sites = [feedparser.parse(x) for x in sorted(fileHandler.readlines()) if validators.url(x)]
     fileHandler.close()
 
