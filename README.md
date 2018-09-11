@@ -15,7 +15,7 @@ Freedy is a free and simple RSS/ Atom reader for the browser, written in Python 
 ## Usage
 You basically just need to clone the repo, setup the virtualenv for the project and then run the flask/gunicorn server. We also recommend using a reverse proxy (eg. nginx) in front of the app for security reasons.
 
-´´´bash
+```bash
 git clone https://github.com/konstantingoretzki/freedy && cd freedy/
 
 python3 -m venv venv
@@ -27,7 +27,11 @@ pip install -r requirements.txt
 pip install gunicorn
 
 exec gunicorn -b :5000 --access-logfile - --error-logfile - freedy:app
-´´´
+```
 
 ## Docker deployment
 Take a look at our [freedy-docker](https://github.com/konstantingoretzki/freedy-docker) repo for some instructions.
+
+
+
+
