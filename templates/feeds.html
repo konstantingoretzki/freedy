@@ -11,12 +11,12 @@
                     {# if there's an author and a date entry then show it #}
                     {% if entry.updated_parsed and entry['author'] %}
                     <small class="text-muted">
-                        Veröffentlicht am {{ entry.updated_parsed|convertTime }} von {{ entry['author'] }}
+                        Published on {{ entry.updated_parsed|convertTime }} by {{ entry['author'] }}
                     </small>
                     {# if there's only a date #}
                     {% elif entry.updated_parsed %}
                     <small class="text-muted">
-                        Veröffentlicht am {{ entry.updated_parsed|convertTime }}
+                        Published on {{ entry.updated_parsed|convertTime }}
                     </small>
                     {% endif %}
                 </p>
