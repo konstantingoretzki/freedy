@@ -10,7 +10,7 @@ import locale
 app = Flask(__name__)
 
 # needed for changing months to German for date entries
-locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
+#locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
 
 # custom filter for getting the published_date in the following format: 1. September 2018
 @app.template_filter('convertTime')
