@@ -5,8 +5,6 @@
 ## What is Freedy?
 Freedy is a free and simple RSS/ Atom reader for the browser, written in Python with Flask. Using Bootstrap as a mobile-first web framework, we were able to create a nice looking webapp for every kind of device.
 
-![screenshot](https://i.imgur.com/CWil8rC.png)
-
 ## Features
 - Looks great on tablets, phones etc. thanks to Bootstrap.
 - Compatible with RSS and Atom feeds.
